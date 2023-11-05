@@ -11,8 +11,8 @@ class AddNoteButtonSheet extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-        CustomTextField(),
-        CustomTextField()
+        CustomTextField(hintText: 'Title',),
+        CustomTextField(hintText: 'content',maxLine: 4,)
     
         ],
       ),

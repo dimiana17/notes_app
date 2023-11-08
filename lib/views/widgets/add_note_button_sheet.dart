@@ -6,7 +6,6 @@ import 'package:note_app/views/widgets/add_note_form.dart';
 
 class AddNoteButtonSheet extends StatelessWidget {
   const AddNoteButtonSheet({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +14,17 @@ class AddNoteButtonSheet extends StatelessWidget {
       child: SingleChildScrollView(
         child: BlocConsumer<AddNoteCubitCubit, AddNoteCubitState>(
           listener: (context, state) {
-            if(state is AddNoteFailure){
+            if (state is AddNoteFailure) {
               print('failed! ${state.errMessage}');
             }
-            if(state is AddNoteSuccess){
+            if (state is AddNoteSuccess) {
               Navigator.pop(context);
             }
-
-           
           },
           builder: (context, state) {
             return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoading ? true:false,
-              child: const AddNoteForm()
-              );
+                inAsyncCall: state is AddNoteLoading ? true : false,
+                child: const AddNoteForm());
           },
         ),
       ),
